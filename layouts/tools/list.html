@@ -22,8 +22,8 @@
                   <div class="card-body">
                     <h4 class="h5"><a class="text-dark" href="{{ .link | safeURL }}">{{ .name | markdownify }}</a></h4>
                     <div class="content mb-4">{{ .description }}</div>
-		    {{ if (not (eq .link "")) }}
-		    <a href="{{ .link | safeURL }}" class="btn btn-primary">Visit Project</a>
+		    {{ if .link  }}
+		    <a href="{{ .link | safeURL }}" target="_blank" class="btn btn-primary">Visit Project</a>
 		    {{ end }}
                   </div>
                 </div>

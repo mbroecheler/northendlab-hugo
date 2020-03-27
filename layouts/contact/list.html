@@ -3,7 +3,7 @@
 <section class="section">
   <div class="container">
     <div class="row justify-content-between">
-      <div class="col-lg-5">
+      <div class="col-lg-5 mb-3">
         <h2 class="mb-4">{{ .Title | markdownify }}</h2>
         <div class="content">{{ .Content }}</div>
         <form method="POST" action="{{ .Site.Params.contact_form_action | safeURL}}" class="row">
