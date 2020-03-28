@@ -3,7 +3,7 @@
 <section class="section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mx-auto block shadow mb-5">
+      <div class="col-lg-8 mx-auto block shadow">
         <h2>{{ .Title | markdownify }}</h2>
         <div class="mb-3 post-meta">
           <a href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize | lower }}">{{ .Params.Author }}</a>,
@@ -28,4 +28,30 @@
   </div>
 </section>
 
+<!-- related articles -->
+{{ $related := .Site.RegularPages.RelatedIndices . "keywords" | first 3 }}
+{{ with $related }}
+<section class="section pt-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="row shadow bg-white p-5">
+          <div class="mb-2">
+            <h3 class="mt-0">Related Articles You May Like</h3>
+          </div>
+          {{ range . }}
+          {{ .Render "article" }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- /related articles -->
+
+<!-- cta -->
+{{ .Render "cta" }}
+<!-- /cta -->
 {{ end }}
